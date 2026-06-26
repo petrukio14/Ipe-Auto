@@ -3,476 +3,461 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ipê Auto — Mecânica em São José, Esmeraldas/MG</title>
-<meta name="description" content="Ipê Auto — oficina mecânica no bairro São José, Esmeraldas, MG. Freios, suspensão, mecânica geral, elétrica, diagnóstico e revisão.">
+<title>Centro Automotivo Ipê Amarelo — Mecânica em Esmeraldas/MG</title>
+<meta name="description" content="Centro Automotivo Ipê Amarelo — mecânica geral, caminhões, borracharia, freios, suspensão, elétrica e diagnóstico. Quinta São José, Esmeraldas, MG. Fala com o Daniel: (31) 97522-0038.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --yellow:#F2B705;
-    --yellow-deep:#C98F02;
     --ink:#161513;
-    --graphite:#262420;
-    --graphite-2:#322F2A;
+    --graphite:#252220;
+    --graphite-2:#302C28;
     --bone:#FAFAF6;
     --grey:#B9B5AC;
     --grey-dim:#79766E;
-    --line: rgba(250,250,246,0.12);
+    --line:rgba(250,250,246,0.11);
   }
-
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
-
-  body{
-    background:var(--ink);
-    color:var(--bone);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-
-  .display{font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.02em;}
-  .mono{font-family:'Space Mono',monospace;}
-
+  body{background:var(--ink);color:var(--bone);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
-
   ::selection{background:var(--yellow);color:var(--ink);}
 
-  /* texture */
-  .grain{
-    position:fixed; inset:0; pointer-events:none; z-index:1; opacity:0.05; mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
   /* ===== HEADER ===== */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px clamp(20px,5vw,56px);
-    background:linear-gradient(to bottom, rgba(22,21,19,0.95), rgba(22,21,19,0));
-    backdrop-filter:blur(2px);
-  }
-  .brand{display:flex; align-items:center; gap:12px;}
-  .brand-mark{width:40px;height:40px;flex-shrink:0;}
-  .brand-name{font-family:'Oswald',sans-serif; font-weight:600; font-size:1.15rem; letter-spacing:0.04em; text-transform:uppercase;}
-  .brand-name span{color:var(--yellow);}
-
-  nav{display:flex; gap:28px; align-items:center;}
-  nav a{font-size:0.85rem; font-weight:500; letter-spacing:0.03em; text-transform:uppercase; color:var(--grey); transition:color .2s;}
+  header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px clamp(20px,5vw,52px);background:linear-gradient(to bottom,rgba(22,21,19,0.97) 0%,rgba(22,21,19,0) 100%);backdrop-filter:blur(4px);}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{width:42px;height:42px;flex-shrink:0;}
+  .brand-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:0.98rem;letter-spacing:0.04em;text-transform:uppercase;line-height:1.15;}
+  .brand-name span{color:var(--yellow);display:block;font-size:0.7rem;font-weight:400;letter-spacing:0.1em;}
+  nav{display:flex;gap:22px;align-items:center;}
+  nav a{font-size:0.82rem;font-weight:500;letter-spacing:0.03em;text-transform:uppercase;color:var(--grey);transition:color .2s;}
   nav a:hover{color:var(--yellow);}
-  .nav-cta{
-    background:var(--yellow); color:var(--ink) !important; padding:10px 18px; border-radius:2px;
-    font-weight:700; font-size:0.82rem;
-  }
+  .nav-cta{background:var(--yellow);color:var(--ink)!important;padding:10px 18px;border-radius:2px;font-weight:700;font-size:0.8rem;}
   .nav-cta:hover{background:var(--bone);}
-
   .nav-toggle{display:none;}
 
   /* ===== HERO ===== */
-  .hero{
-    min-height:100svh;
-    display:flex; flex-direction:column; justify-content:center;
-    position:relative;
-    padding: 140px clamp(20px,5vw,56px) 80px;
-    background:
-      radial-gradient(ellipse 60% 50% at 80% 15%, rgba(242,183,5,0.14), transparent),
-      linear-gradient(180deg, var(--ink) 0%, var(--ink) 100%);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;padding:0 clamp(20px,5vw,52px) 68px;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(22,21,19,1) 0%,rgba(22,21,19,0.72) 40%,rgba(22,21,19,0.25) 100%);}
+  .hero-content{position:relative;z-index:2;max-width:780px;}
+  .eyebrow-tag{font-family:'Space Mono',monospace;font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow-tag::before{content:"";width:28px;height:1px;background:var(--yellow);}
+  .hero h1{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(2.8rem,8.5vw,6.8rem);line-height:0.9;font-weight:700;}
+  .hero h1 em{color:var(--yellow);font-style:normal;display:block;}
+  .hero-sub{max-width:500px;margin-top:22px;font-size:1rem;line-height:1.6;color:var(--grey);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;font-weight:700;font-size:0.88rem;letter-spacing:0.02em;border-radius:2px;border:1px solid transparent;transition:all .2s;font-family:'Inter',sans-serif;}
+  .btn-primary{background:var(--yellow);color:var(--ink);}
+  .btn-primary:hover{background:var(--bone);transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--line);color:var(--bone);}
+  .btn-ghost:hover{border-color:var(--yellow);color:var(--yellow);}
+  .btn-block{width:100%;justify-content:center;}
+  .hero-strip{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:32px;}
+  .strip-item{font-family:'Space Mono',monospace;font-size:0.73rem;color:var(--grey-dim);}
+  .strip-item b{display:block;color:var(--bone);font-size:1.45rem;font-family:'Oswald',sans-serif;font-weight:600;}
+
+  /* ===== SECTION ===== */
+  section{padding:88px clamp(20px,5vw,52px);}
+  .section-head{margin-bottom:48px;max-width:620px;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:13px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--yellow);}
+  .section-head h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(1.9rem,3.5vw,2.8rem);text-transform:uppercase;letter-spacing:0.01em;}
+  .section-head p{color:var(--grey);margin-top:13px;font-size:0.97rem;line-height:1.6;}
+
+  /* ===== DESTAQUES ===== */
+  .destaques{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .dest-card{background:var(--graphite);padding:26px 22px;display:flex;gap:14px;align-items:flex-start;transition:background .2s;}
+  .dest-card:hover{background:var(--graphite-2);}
+  .dest-card svg{flex-shrink:0;color:var(--yellow);margin-top:2px;}
+  .dest-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:0.98rem;font-weight:600;margin-bottom:5px;}
+  .dest-card p{color:var(--grey);font-size:0.84rem;line-height:1.5;}
+  @media(max-width:720px){.destaques{grid-template-columns:1fr;}}
+
+  /* ===== GALERIA ===== */
+  .gallery-wrap{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:auto;gap:5px;}
+  .gitem{overflow:hidden;border-radius:3px;position:relative;background:var(--graphite);}
+  .gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease;}
+  .gitem:hover img{transform:scale(1.05);}
+  .gitem-cap{position:absolute;bottom:0;left:0;right:0;padding:22px 14px 12px;background:linear-gradient(to top,rgba(22,21,19,0.92),transparent);font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey);opacity:0;transition:opacity .3s;}
+  .gitem:hover .gitem-cap{opacity:1;}
+
+  .g1{grid-column:1/6;grid-row:1/3;height:490px;}
+  .g2{grid-column:6/9;grid-row:1;height:242px;}
+  .g3{grid-column:9/13;grid-row:1;height:242px;}
+  .g4{grid-column:6/9;grid-row:2;height:242px;}
+  .g5{grid-column:9/13;grid-row:2;height:242px;}
+  .g6{grid-column:1/5;grid-row:3;height:290px;}
+  .g7{grid-column:5/9;grid-row:3;height:290px;}
+  .g8{grid-column:9/13;grid-row:3;height:290px;}
+
+  @media(max-width:900px){
+    .gallery-wrap{grid-template-columns:1fr 1fr;}
+    .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8{grid-column:auto;grid-row:auto;height:200px;}
+    .g1{grid-column:1/3;height:260px;}
+  }
+  @media(max-width:520px){
+    .gallery-wrap{grid-template-columns:1fr;}
+    .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8{grid-column:auto;height:200px;}
+    .g1{height:240px;}
   }
 
-  .hero::before{
-    content:"";
-    position:absolute; right:-8%; top:50%; transform:translateY(-50%);
-    width:620px; height:620px;
-    background:repeating-conic-gradient(from 0deg, var(--yellow) 0deg 2deg, transparent 2deg 18deg);
-    border-radius:50%;
-    opacity:0.06;
-    z-index:0;
-  }
-
-  .hero-eyebrow{
-    font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--yellow); margin-bottom:22px; display:flex; align-items:center; gap:10px; position:relative; z-index:2;
-  }
-  .hero-eyebrow::before{content:""; width:28px; height:1px; background:var(--yellow);}
-
-  .hero h1{
-    font-size:clamp(3rem, 9vw, 7.5rem);
-    line-height:0.92;
-    font-weight:700;
-    position:relative; z-index:2;
-  }
-  .hero h1 .line2{color:var(--yellow); display:block;}
-
-  .hero-sub{
-    max-width:540px; margin-top:28px; font-size:1.05rem; line-height:1.6; color:var(--grey);
-    position:relative; z-index:2;
-  }
-
-  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; position:relative; z-index:2;}
-
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:16px 28px; font-weight:700; font-size:0.92rem; letter-spacing:0.02em;
-    border-radius:2px; border:1px solid transparent; transition:all .2s;
-    font-family:'Inter',sans-serif;
-  }
-  .btn-primary{background:var(--yellow); color:var(--ink);}
-  .btn-primary:hover{background:var(--bone); transform:translateY(-2px);}
-  .btn-ghost{border-color:var(--line); color:var(--bone);}
-  .btn-ghost:hover{border-color:var(--yellow); color:var(--yellow);}
-
-  .hero-strip{
-    margin-top:64px; padding-top:28px; border-top:1px solid var(--line);
-    display:flex; flex-wrap:wrap; gap:40px; position:relative; z-index:2;
-  }
-  .strip-item{font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--grey-dim);}
-  .strip-item b{display:block; color:var(--bone); font-size:1.6rem; font-family:'Oswald',sans-serif; font-weight:600;}
-
-  /* ===== SECTION SHELL ===== */
-  section{padding:100px clamp(20px,5vw,56px);}
-  .section-head{margin-bottom:56px; max-width:640px;}
-  .eyebrow{
-    font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--yellow); margin-bottom:14px; display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:""; width:28px; height:1px; background:var(--yellow);}
-  .section-head h2{font-family:'Oswald',sans-serif; font-weight:600; font-size:clamp(2rem,4vw,3rem); text-transform:uppercase; letter-spacing:0.01em;}
-  .section-head p{color:var(--grey); margin-top:14px; font-size:1.02rem; line-height:1.6;}
-
-  /* ===== SERVICES — Ordem de Serviço list ===== */
-  .os-sheet{
-    border:1px solid var(--line); border-radius:4px; overflow:hidden;
-    background:var(--graphite);
-  }
-  .os-row{
-    display:grid; grid-template-columns:100px 1fr 200px;
-    align-items:center;
-    padding:26px clamp(20px,3vw,36px);
-    border-bottom:1px solid var(--line);
-    transition:background .2s;
-    position:relative;
-  }
+  /* ===== SERVIÇOS ===== */
+  .os-sheet{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--graphite);}
+  .os-row{display:grid;grid-template-columns:86px 1fr 170px;align-items:center;padding:22px clamp(16px,3vw,34px);border-bottom:1px solid var(--line);transition:background .2s;}
   .os-row:last-child{border-bottom:none;}
   .os-row:hover{background:var(--graphite-2);}
-  .os-row:hover .os-go{color:var(--yellow); transform:translateX(4px);}
+  .os-row:hover .os-go{color:var(--yellow);transform:translateX(4px);}
+  .os-num{font-family:'Space Mono',monospace;color:var(--grey-dim);font-size:0.8rem;}
+  .os-num span{color:var(--yellow);font-weight:700;}
+  .os-name{font-family:'Oswald',sans-serif;font-weight:500;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.01em;}
+  .os-badge{display:inline-block;font-size:0.62rem;font-family:'Space Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;background:var(--yellow);color:var(--ink);padding:2px 7px;border-radius:1px;margin-left:8px;vertical-align:middle;font-weight:700;}
+  .os-desc{color:var(--grey);font-size:0.88rem;margin-top:3px;font-weight:400;text-transform:none;letter-spacing:normal;font-family:'Inter',sans-serif;}
+  .os-go{justify-self:end;font-family:'Space Mono',monospace;font-size:0.76rem;color:var(--grey-dim);display:flex;align-items:center;gap:7px;transition:all .2s;}
+  @media(max-width:680px){.os-row{grid-template-columns:1fr;gap:7px;}.os-go{justify-self:start;margin-top:4px;}}
 
-  .os-code{font-family:'Space Mono',monospace; color:var(--grey-dim); font-size:0.85rem;}
-  .os-code span{color:var(--yellow); font-weight:700;}
+  /* ===== CAMINHÃO BANNER ===== */
+  .truck-banner{position:relative;overflow:hidden;border-radius:4px;min-height:360px;display:flex;align-items:flex-end;padding:44px clamp(22px,4vw,52px);border:1px solid var(--line);}
+  .tb-bg{position:absolute;inset:0;z-index:0;}
+  .tb-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .tb-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,21,19,0.96) 0%,rgba(22,21,19,0.65) 55%,rgba(22,21,19,0.1) 100%);}
+  .tb-content{position:relative;z-index:2;max-width:480px;}
+  .tb-content h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.8rem);text-transform:uppercase;line-height:1;margin-bottom:13px;}
+  .tb-content p{color:var(--grey);font-size:0.93rem;line-height:1.6;margin-bottom:22px;}
 
-  .os-name{font-family:'Oswald',sans-serif; font-weight:500; font-size:1.3rem; text-transform:uppercase; letter-spacing:0.01em;}
-  .os-desc{color:var(--grey); font-size:0.92rem; margin-top:4px; font-weight:400; text-transform:none; letter-spacing:normal; font-family:'Inter',sans-serif;}
+  /* ===== TRUST ===== */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .trust-card{background:var(--ink);padding:32px 26px;}
+  .trust-tag{font-family:'Space Mono',monospace;color:var(--yellow);font-size:0.78rem;margin-bottom:14px;}
+  .trust-card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:1.05rem;font-weight:600;margin-bottom:9px;}
+  .trust-card p{color:var(--grey);font-size:0.88rem;line-height:1.55;}
+  @media(max-width:780px){.trust-grid{grid-template-columns:1fr;}}
 
-  .os-go{
-    justify-self:end; font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--grey-dim);
-    display:flex; align-items:center; gap:8px; transition:all .2s;
-  }
+  /* ===== CONTATO ===== */
+  .contact-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .contact-info{background:var(--yellow);color:var(--ink);padding:50px clamp(24px,4vw,50px);}
+  .contact-info .eyebrow{color:var(--ink);opacity:0.6;}
+  .contact-info .eyebrow::before{background:var(--ink);opacity:0.6;}
+  .contact-info h2{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:6px;line-height:1.05;}
+  .ci-sub{font-family:'Space Mono',monospace;font-size:0.75rem;margin-bottom:26px;opacity:0.7;}
+  .crow{display:flex;gap:13px;margin-bottom:18px;align-items:flex-start;}
+  .crow svg{flex-shrink:0;margin-top:3px;}
+  .crow .cl{font-family:'Space Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.7;margin-bottom:3px;}
+  .crow .cv{font-weight:600;font-size:0.97rem;line-height:1.4;}
+  .contact-cta{background:var(--graphite);padding:50px clamp(24px,4vw,50px);display:flex;flex-direction:column;justify-content:center;gap:14px;}
+  .contact-cta h3{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:1.3rem;font-weight:600;margin-bottom:4px;}
+  .contact-cta p{color:var(--grey);font-size:0.91rem;line-height:1.6;margin-bottom:6px;}
+  @media(max-width:740px){.contact-wrap{grid-template-columns:1fr;}}
 
-  @media (max-width:720px){
-    .os-row{grid-template-columns:1fr; gap:8px;}
-    .os-code{order:1;}
-    .os-name{order:2;}
-    .os-go{order:3; justify-self:start; margin-top:6px;}
-  }
-
-  /* ===== WHY / TRUST ===== */
-  .trust-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
-    background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden;
-  }
-  .trust-card{background:var(--ink); padding:36px 30px;}
-  .trust-num{font-family:'Space Mono',monospace; color:var(--yellow); font-size:0.85rem; margin-bottom:18px;}
-  .trust-card h3{font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:1.15rem; font-weight:600; margin-bottom:10px; letter-spacing:0.01em;}
-  .trust-card p{color:var(--grey); font-size:0.92rem; line-height:1.55;}
-
-  @media (max-width:820px){
-    .trust-grid{grid-template-columns:1fr;}
-  }
-
-  /* ===== CONTACT ===== */
-  .contact-wrap{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:0;
-    border:1px solid var(--line); border-radius:4px; overflow:hidden;
-  }
-  .contact-info{background:var(--yellow); color:var(--ink); padding:56px clamp(28px,4vw,56px);}
-  .contact-info .eyebrow{color:var(--ink); opacity:0.65;}
-  .contact-info .eyebrow::before{background:var(--ink); opacity:0.65;}
-  .contact-info h2{font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:clamp(1.8rem,3vw,2.4rem); font-weight:600; margin-bottom:28px; line-height:1.05;}
-
-  .contact-row{display:flex; gap:16px; margin-bottom:22px; align-items:flex-start;}
-  .contact-row svg{flex-shrink:0; margin-top:3px;}
-  .contact-row .label{font-family:'Space Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; opacity:0.7; margin-bottom:3px;}
-  .contact-row .val{font-weight:600; font-size:1.02rem; line-height:1.4;}
-  .contact-row a.val:hover{text-decoration:underline;}
-
-  .contact-cta{background:var(--graphite); padding:56px clamp(28px,4vw,56px); display:flex; flex-direction:column; justify-content:center; gap:18px;}
-  .contact-cta h3{font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:1.4rem; font-weight:600; margin-bottom:6px;}
-  .contact-cta p{color:var(--grey); font-size:0.95rem; line-height:1.6; margin-bottom:8px;}
-  .btn-block{width:100%; justify-content:center;}
-
-  @media (max-width:780px){
-    .contact-wrap{grid-template-columns:1fr;}
-  }
-
-  /* ===== MAP ===== */
-  .map-frame{
-    border:1px solid var(--line); border-radius:4px; overflow:hidden; height:340px; margin-top:40px;
-    filter:grayscale(1) invert(0.92) contrast(0.9);
-  }
-  .map-frame iframe{width:100%; height:100%; border:0; display:block;}
+  .map-frame{border:1px solid var(--line);border-radius:4px;overflow:hidden;height:310px;margin-top:32px;}
+  .map-frame iframe{width:100%;height:100%;border:0;display:block;}
 
   /* ===== FOOTER ===== */
-  footer{
-    padding:40px clamp(20px,5vw,56px); border-top:1px solid var(--line);
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; align-items:center;
-  }
-  .footer-brand{display:flex; align-items:center; gap:10px; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.03em; font-size:0.95rem;}
-  .footer-brand svg{width:26px; height:26px;}
-  footer .fine{font-family:'Space Mono',monospace; font-size:0.75rem; color:var(--grey-dim);}
+  footer{padding:32px clamp(20px,5vw,52px);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;}
+  .footer-brand{display:flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:0.88rem;}
+  .footer-brand svg{width:26px;height:26px;}
+  footer .fine{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--grey-dim);}
 
-  /* ===== WHATSAPP FLOAT ===== */
-  .wa-float{
-    position:fixed; bottom:24px; right:24px; z-index:60;
-    width:58px; height:58px; border-radius:50%; background:var(--yellow);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 8px 24px rgba(0,0,0,0.4);
-    transition:transform .2s;
-  }
+  /* ===== WA FLOAT ===== */
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;width:54px;height:54px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.4);transition:transform .2s;}
   .wa-float:hover{transform:scale(1.08);}
 
-  /* reveal on scroll */
-  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
 
-  @media (prefers-reduced-motion:reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* focus states */
-  a:focus-visible, button:focus-visible{outline:2px solid var(--yellow); outline-offset:3px;}
-
-  /* mobile nav */
-  @media (max-width:880px){
-    nav{
-      position:fixed; top:0; right:-100%; height:100svh; width:min(78vw,320px);
-      background:var(--graphite); flex-direction:column; justify-content:center; align-items:flex-start;
-      padding:40px; gap:26px; transition:right .35s ease; border-left:1px solid var(--line);
-    }
+  /* ===== MOBILE NAV ===== */
+  @media(max-width:840px){
+    nav{position:fixed;top:0;right:-100%;height:100svh;width:min(75vw,295px);background:var(--graphite);flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:22px;transition:right .35s ease;border-left:1px solid var(--line);}
     nav.open{right:0;}
-    nav a{font-size:1.1rem;}
-    .nav-toggle{
-      display:flex; flex-direction:column; gap:5px; width:32px; z-index:60; background:none; border:none; cursor:pointer; padding:6px;
-    }
-    .nav-toggle span{width:100%; height:2px; background:var(--bone);}
-    .nav-cta{margin-top:10px;}
+    nav a{font-size:1rem;}
+    .nav-toggle{display:flex;flex-direction:column;gap:5px;width:30px;z-index:60;background:none;border:none;cursor:pointer;padding:5px;}
+    .nav-toggle span{width:100%;height:2px;background:var(--bone);}
+    .nav-cta{margin-top:8px;}
   }
+  a:focus-visible,button:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;}
 </style>
 </head>
 <body>
 
 <div class="grain"></div>
 
+<!-- HEADER -->
 <header>
   <a href="#topo" class="brand">
     <svg class="brand-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="47" stroke="#F2B705" stroke-width="3"/>
       <circle cx="50" cy="50" r="39" stroke="#F2B705" stroke-width="1" stroke-dasharray="2 4"/>
-      <text x="50" y="42" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="19" fill="#FAFAF6" letter-spacing="1">IPÊ</text>
-      <text x="50" y="62" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="13" fill="#F2B705" letter-spacing="3">AUTO</text>
-      <path d="M28 72 L72 72" stroke="#F2B705" stroke-width="1.5"/>
+      <text x="50" y="37" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="15" fill="#FAFAF6" letter-spacing="1">IPÊ</text>
+      <text x="50" y="52" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="11.5" fill="#F2B705" letter-spacing="2">AMARELO</text>
+      <path d="M26 63 L74 63" stroke="#F2B705" stroke-width="1.5"/>
+      <text x="50" y="75" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="400" font-size="8.5" fill="#B9B5AC" letter-spacing="3">AUTO</text>
     </svg>
-    <span class="brand-name">Ipê <span>Auto</span></span>
+    <div class="brand-name">Centro Automotivo<span>Ipê Amarelo</span></div>
   </a>
 
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 
   <nav id="navMenu">
+    <a href="#galeria">Oficina</a>
     <a href="#servicos">Serviços</a>
-    <a href="#oficina">A oficina</a>
+    <a href="#caminhoes">Caminhões</a>
     <a href="#contato">Contato</a>
-    <a href="https://wa.me/5531975220038" class="nav-cta">Chamar no Zap</a>
+    <a href="https://wa.me/5531975220038" class="nav-cta">Fala com Daniel</a>
   </nav>
 </header>
 
 <main id="topo">
 
-  <!-- HERO -->
+  <!-- HERO — foto real de fundo -->
   <section class="hero">
-    <div class="hero-eyebrow">São José — Esmeraldas, MG</div>
-    <h1 class="display">
-      Seu carro<br>
-      <span class="line2">em mãos de confiança.</span>
-    </h1>
-    <p class="hero-sub">
-      Mecânica geral, freios, suspensão, elétrica e diagnóstico por injeção eletrônica.
-      Diagnóstico honesto, serviço explicado e carro entregue no prazo combinado.
-    </p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5531975220038" class="btn btn-primary">
-        Chamar no WhatsApp
-      </a>
-      <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+    <div class="hero-bg">
+      <img src="fotos/foto6.jpg" alt="Centro Automotivo Ipê Amarelo — oficina em Esmeraldas MG" loading="eager">
     </div>
+    <div class="hero-content">
+      <div class="eyebrow-tag">Quinta São José — Esmeraldas, MG</div>
+      <h1>Centro Automotivo<br><em>Ipê Amarelo.</em></h1>
+      <p class="hero-sub">Mecânica geral, caminhões, borracharia, freios, suspensão, elétrica e diagnóstico eletrônico. Diagnóstico honesto, orçamento sem compromisso, carro entregue no prazo.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5531975220038" class="btn btn-primary">Fala com o Daniel no Zap</a>
+        <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+      </div>
+      <div class="hero-strip">
+        <div class="strip-item"><b>Seg – Sex</b>08h às 17h</div>
+        <div class="strip-item"><b>Sábado</b>08h às 16h</div>
+        <div class="strip-item"><b>Orçamento</b>Sem compromisso</div>
+        <div class="strip-item"><b>Caminhões</b>Atendemos</div>
+      </div>
+    </div>
+  </section>
 
-    <div class="hero-strip">
-      <div class="strip-item"><b>Seg – Sex</b>08h às 17h</div>
-      <div class="strip-item"><b>Sábado</b>08h às 16h</div>
-      <div class="strip-item"><b>Orçamento</b>Sem compromisso</div>
+  <!-- DESTAQUES -->
+  <section style="padding-top:0;padding-bottom:0;">
+    <div class="destaques reveal">
+      <div class="dest-card">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><h3>Diagnóstico preciso</h3><p>Antes de qualquer serviço você sabe exatamente o que está errado e qual o valor.</p></div>
+      </div>
+      <div class="dest-card">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><h3>Atende caminhões</h3><p>Manutenção e reparos em caminhões e veículos pesados com experiência comprovada.</p></div>
+      </div>
+      <div class="dest-card">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h3>Borracharia completa</h3><p>Serviço completo de borracharia, preço justo e atendimento direto com o Daniel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="section-head reveal">
+      <div class="eyebrow">A oficina em ação</div>
+      <h2>Trabalho real,<br>resultado que você vê</h2>
+      <p>Carros no elevador, motores abertos, caminhões em manutenção. Isso é o dia a dia do Centro Automotivo Ipê Amarelo.</p>
+    </div>
+    <div class="gallery-wrap reveal">
+      <div class="gitem g1">
+        <img src="fotos/foto8.jpg" alt="Vários carros em atendimento na oficina" loading="lazy">
+        <div class="gitem-cap">Oficina sempre movimentada</div>
+      </div>
+      <div class="gitem g2">
+        <img src="fotos/foto1.jpg" alt="Ford Fiesta no elevador com capô aberto" loading="lazy">
+        <div class="gitem-cap">Elevador profissional</div>
+      </div>
+      <div class="gitem g3">
+        <img src="fotos/foto2.jpg" alt="Carro no elevador externo da oficina" loading="lazy">
+        <div class="gitem-cap">Estrutura completa</div>
+      </div>
+      <div class="gitem g4">
+        <img src="fotos/foto3.jpg" alt="Motor aberto — cabeçote em manutenção" loading="lazy">
+        <div class="gitem-cap">Mecânica de motor e cabeçote</div>
+      </div>
+      <div class="gitem g5">
+        <img src="fotos/foto4.jpg" alt="Motor aberto — revisão de injeção" loading="lazy">
+        <div class="gitem-cap">Revisão de injeção eletrônica</div>
+      </div>
+      <div class="gitem g6">
+        <img src="fotos/foto5.jpg" alt="Motor com vista da natureza ao fundo" loading="lazy">
+        <div class="gitem-cap">Motor em serviço</div>
+      </div>
+      <div class="gitem g7">
+        <img src="fotos/foto7.jpg" alt="Daniel trabalhando no motor de caminhão" loading="lazy">
+        <div class="gitem-cap">Manutenção de caminhões</div>
+      </div>
+      <div class="gitem g8">
+        <img src="fotos/foto6.jpg" alt="Carro no elevador — troca de óleo" loading="lazy">
+        <div class="gitem-cap">Troca de óleo e revisão</div>
+      </div>
     </div>
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos">
+  <section id="servicos" style="padding-top:0;">
     <div class="section-head reveal">
       <div class="eyebrow">O que fazemos</div>
       <h2>Ordem de serviço</h2>
-      <p>Da revisão de rotina ao problema que ninguém mais resolveu. Cada serviço, explicado em linguagem simples antes de qualquer coisa ser feita no seu carro.</p>
+      <p>Cada serviço explicado antes de executar. Sem surpresa no final.</p>
     </div>
-
     <div class="os-sheet reveal">
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20mec%C3%A2nica%20geral." class="os-row">
-        <div class="os-code">OS <span>01</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20mec%C3%A2nica%20geral." class="os-row">
+        <div class="os-num">OS <span>01</span></div>
         <div>
           <div class="os-name">Mecânica geral</div>
-          <div class="os-desc">Motor, câmbio e problemas de funcionamento do veículo.</div>
+          <div class="os-desc">Motor, câmbio, ajuste de válvulas e problemas de funcionamento.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
       </a>
-
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20freios." class="os-row">
-        <div class="os-code">OS <span>02</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20freios." class="os-row">
+        <div class="os-num">OS <span>02</span></div>
         <div>
           <div class="os-name">Freios</div>
-          <div class="os-desc">Pastilhas, discos, fluido e sistema de freio completo.</div>
+          <div class="os-desc">Pastilhas, discos, tambores, fluido e sistema completo.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
       </a>
-
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20suspens%C3%A3o." class="os-row">
-        <div class="os-code">OS <span>03</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20suspens%C3%A3o." class="os-row">
+        <div class="os-num">OS <span>03</span></div>
         <div>
           <div class="os-name">Suspensão</div>
-          <div class="os-desc">Amortecedores, molas e barulhos ao passar em buracos.</div>
+          <div class="os-desc">Amortecedores, molas, buchas e barulhos em buracos.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
       </a>
-
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20parte%20el%C3%A9trica." class="os-row">
-        <div class="os-code">OS <span>04</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20el%C3%A9trica." class="os-row">
+        <div class="os-num">OS <span>04</span></div>
         <div>
           <div class="os-name">Parte elétrica</div>
-          <div class="os-desc">Bateria, alternador, fiação, luzes e sensores.</div>
+          <div class="os-desc">Bateria, alternador, fiação, sensores e luzes.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
       </a>
-
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20diagn%C3%B3stico%20por%20inje%C3%A7%C3%A3o%20eletr%C3%B4nica." class="os-row">
-        <div class="os-code">OS <span>05</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20diagn%C3%B3stico%20eletr%C3%B4nico." class="os-row">
+        <div class="os-num">OS <span>05</span></div>
         <div>
-          <div class="os-name">Diagnóstico / injeção eletrônica</div>
-          <div class="os-desc">Leitura de falhas com scanner e ajuste de injeção.</div>
+          <div class="os-name">Diagnóstico eletrônico</div>
+          <div class="os-desc">Scanner, leitura de falhas e ajuste de injeção eletrônica.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
       </a>
-
-      <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20revis%C3%A3o%20geral." class="os-row">
-        <div class="os-code">OS <span>06</span></div>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20revis%C3%A3o%20geral." class="os-row">
+        <div class="os-num">OS <span>06</span></div>
         <div>
           <div class="os-name">Revisão geral / preventiva</div>
-          <div class="os-desc">Checagem completa para evitar problema maior depois.</div>
+          <div class="os-desc">Checagem completa de todos os sistemas do veículo.</div>
         </div>
-        <div class="os-go">Pedir orçamento →</div>
+        <div class="os-go">Orçamento →</div>
+      </a>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20borracharia." class="os-row">
+        <div class="os-num">OS <span>07</span></div>
+        <div>
+          <div class="os-name">Borracharia completa <span class="os-badge">Destaque</span></div>
+          <div class="os-desc">Reparo de pneus, montagem, balanceamento e serviços de borracharia.</div>
+        </div>
+        <div class="os-go">Orçamento →</div>
+      </a>
+      <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Quero%20um%20or%C3%A7amento%20de%20ar-condicionado." class="os-row">
+        <div class="os-num">OS <span>08</span></div>
+        <div>
+          <div class="os-name">Ar-condicionado</div>
+          <div class="os-desc">Recarga, limpeza e reparos no sistema de ar-condicionado.</div>
+        </div>
+        <div class="os-go">Orçamento →</div>
       </a>
     </div>
   </section>
 
-  <!-- A OFICINA / CONFIANÇA -->
-  <section id="oficina">
-    <div class="section-head reveal">
-      <div class="eyebrow">Por que a Ipê Auto</div>
-      <h2>Trabalho que você entende</h2>
-      <p>Sem termo técnico difícil pra te confundir, sem peça trocada sem te avisar antes.</p>
+  <!-- CAMINHÕES -->
+  <section id="caminhoes" style="padding-top:0;">
+    <div class="truck-banner reveal">
+      <div class="tb-bg">
+        <img src="fotos/foto7.jpg" alt="Daniel trabalhando no motor de caminhão" loading="lazy">
+      </div>
+      <div class="tb-content">
+        <div class="eyebrow">Frota e veículos pesados</div>
+        <h2>Atendemos caminhões</h2>
+        <p>Motor, elétrica, freios e manutenção preventiva para caminhões e veículos pesados. O Daniel tem experiência com frotas e autônomos.</p>
+        <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20em%20caminh%C3%A3o." class="btn btn-primary">Orçamento para caminhão</a>
+      </div>
     </div>
+  </section>
 
+  <!-- CONFIANÇA -->
+  <section>
+    <div class="section-head reveal">
+      <div class="eyebrow">Por que a Ipê Amarelo</div>
+      <h2>Trabalho que você entende</h2>
+    </div>
     <div class="trust-grid reveal">
       <div class="trust-card">
-        <div class="trust-num">— Diagnóstico</div>
+        <div class="trust-tag">— Diagnóstico</div>
         <h3>Explicado, não imposto</h3>
-        <p>Você sabe o que está errado e por quê, antes de autorizar qualquer serviço.</p>
+        <p>Você sabe o que está errado e por quê antes de autorizar qualquer serviço.</p>
       </div>
       <div class="trust-card">
-        <div class="trust-num">— Orçamento</div>
+        <div class="trust-tag">— Orçamento</div>
         <h3>Sem compromisso</h3>
-        <p>Pedir o orçamento não custa nada e não te obriga a fechar o serviço com a gente.</p>
+        <p>Pedir orçamento não te obriga a fechar. Preço justo e transparente.</p>
       </div>
       <div class="trust-card">
-        <div class="trust-num">— Prazo</div>
-        <h3>Combinado, e cumprido</h3>
-        <p>Você sabe o dia que vai buscar o carro desde o primeiro contato.</p>
+        <div class="trust-tag">— Prazo</div>
+        <h3>Combinado e cumprido</h3>
+        <p>Você sabe o dia que vai buscar o carro desde o primeiro contato com o Daniel.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTATO -->
-  <section id="contato">
+  <section id="contato" style="padding-top:0;">
     <div class="section-head reveal">
       <div class="eyebrow">Fale com a gente</div>
       <h2>Bora cuidar do seu carro</h2>
     </div>
-
     <div class="contact-wrap reveal">
       <div class="contact-info">
         <div class="eyebrow">Atendimento</div>
-        <h2>Ipê Auto</h2>
-
-        <div class="contact-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h2>Centro Automotivo<br>Ipê Amarelo</h2>
+        <div class="ci-sub">Fala com o Daniel</div>
+        <div class="crow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <div>
-            <div class="label">Endereço</div>
-            <div class="val">Rua Teófilo Celso Neto, 681<br>São José — Esmeraldas, MG<br>CEP 35740-000</div>
+            <div class="cl">Endereço</div>
+            <div class="cv">R. Teófilo Célso Neto, 681<br>Quinta São José — Esmeraldas, MG<br>CEP 33820-300</div>
           </div>
         </div>
-
-        <div class="contact-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div class="crow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           <div>
-            <div class="label">Horário</div>
-            <div class="val">Seg – Sex: 08h às 17h<br>Sábado: 08h às 16h</div>
+            <div class="cl">Horário</div>
+            <div class="cv">Seg – Sex: 08h às 17h<br>Sábado: 08h às 16h</div>
           </div>
         </div>
-
-        <div class="contact-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div class="crow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           <div>
-            <div class="label">Telefone / WhatsApp</div>
-            <a href="tel:+5531975220038" class="val">(31) 97522-0038</a>
+            <div class="cl">Telefone / WhatsApp</div>
+            <a href="tel:+5531975220038" class="cv">(31) 97522-0038</a>
           </div>
         </div>
       </div>
-
       <div class="contact-cta">
-        <h3>Manda o problema pra gente</h3>
-        <p>Chama no WhatsApp e descreve o que está acontecendo com seu carro — respondemos com o orçamento e o prazo.</p>
-        <a href="https://wa.me/5531975220038?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Ip%C3%AA%20Auto%20e%20quero%20um%20or%C3%A7amento." class="btn btn-primary btn-block">
-          Abrir conversa no WhatsApp
-        </a>
-        <a href="tel:+5531975220038" class="btn btn-ghost btn-block">
-          Ligar agora
-        </a>
+        <h3>Manda o problema pro Daniel</h3>
+        <p>Descreve o que está acontecendo com seu carro pelo WhatsApp — respondemos com orçamento e prazo na hora.</p>
+        <a href="https://wa.me/5531975220038?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." class="btn btn-primary btn-block">Abrir conversa no WhatsApp</a>
+        <a href="tel:+5531975220038" class="btn btn-ghost btn-block">Ligar agora</a>
       </div>
     </div>
-
     <div class="map-frame reveal">
-      <iframe
-        src="https://www.google.com/maps?q=Rua+Te%C3%B3filo+Celso+Neto+681+S%C3%A3o+Jos%C3%A9+Esmeraldas+MG&output=embed"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Ipê Auto">
-      </iframe>
+      <iframe src="https://www.google.com/maps?q=R.+Te%C3%B3filo+C%C3%A9lso+Neto+681+Quinta+S%C3%A3o+Jos%C3%A9+Esmeraldas+MG&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Centro Automotivo Ipê Amarelo"></iframe>
     </div>
   </section>
 
@@ -482,32 +467,25 @@
   <div class="footer-brand">
     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="47" stroke="#F2B705" stroke-width="3"/>
-      <text x="50" y="42" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="19" fill="#FAFAF6">IPÊ</text>
-      <text x="50" y="62" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="600" font-size="13" fill="#F2B705" letter-spacing="3">AUTO</text>
+      <text x="50" y="40" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="15" fill="#FAFAF6">IPÊ</text>
+      <text x="50" y="56" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="11" fill="#F2B705" letter-spacing="2">AMARELO</text>
     </svg>
-    Ipê Auto — Mecânica
+    Centro Automotivo Ipê Amarelo
   </div>
-  <div class="fine">Rua Teófilo Celso Neto, 681 · São José · Esmeraldas, MG</div>
+  <div class="fine">R. Teófilo Célso Neto, 681 · Quinta São José · Esmeraldas, MG · 33820-300</div>
 </footer>
 
-<a href="https://wa.me/5531975220038" class="wa-float" aria-label="Chamar no WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#161513"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.13-2.9-7s-4.36-2.9-7.01-2.9zm0 18.07h-.01a8.2 8.2 0 01-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 01-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.2-8.25 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+<a href="https://wa.me/5531975220038" class="wa-float" aria-label="Chamar Daniel no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#161513"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.13-2.9-7s-4.36-2.9-7.01-2.9zm0 18.07h-.01a8.2 8.2 0 01-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 01-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.2-8.25 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
 <script>
-  // mobile nav
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-  navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
-  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
-
-  // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
+  const t = document.getElementById('navToggle');
+  const n = document.getElementById('navMenu');
+  t.addEventListener('click', () => n.classList.toggle('open'));
+  n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => n.classList.remove('open')));
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
